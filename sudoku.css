@@ -1,0 +1,48 @@
+#sudokuBoard {
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 0px;
+  border: 1px solid;
+  
+}
+
+.sudokuSpot {
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  padding: 0px;
+  border: 1px;
+}
+
+.darkLeft {
+  border-left-width: 3px;
+}
+
+.darkRight {
+  border-right-width: 3px;
+}
+
+.darkTop {
+  border-top-width: 3px;
+}
+
+.darkBottom {
+  border-bottom-width: 3px;
+}
+
+/* TODO: why does setting .sudokuSpot's border: 2px; turn off the pre-existing 2px altogether?
+ * TODO: Why is there a default 1px padding on <input type="text"/>??? 
+ * 
+ * TWO OPTIONS:
+ * - 1px border on the <td> and 1px border on <input>
+ * vs
+ * - default border on <input> and 0px border on the <td> (problem is I don't know how to do 1px on <input>
+ *   cuz it just gets DISABLED in chrome???)
+ * 
+ * TODO: why is there a "highlight halo" on the input box in my page whereas http://www.websudoku.com has none?
+ */
