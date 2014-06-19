@@ -7,33 +7,44 @@
   <body>
     <table id="sudokuBoard">
       <tr>
-        <td class="darkLeft darkTop"><input class="sudokuSpot"/></td>
-        <td class="darkTop"><input class="sudokuSpot"/></td>
-        <td class="darkLeft darkTop"><input class="sudokuSpot"/></td>
-        <td class="darkRight darkTop"><input class="sudokuSpot"/></td>
+        <td class="darkLeft darkTop"><input class="sudokuCell"/></td>
+        <td class="darkTop"><input class="sudokuCell"/></td>
+        <td class="darkLeft darkTop"><input class="sudokuCell"/></td>
+        <td class="darkRight darkTop"><input class="sudokuCell"/></td>
       </tr>
       <tr>
-        <td class="darkLeft"><input class="sudokuSpot"/></td>
-        <td><input class="sudokuSpot"/></td>
-        <td class="darkLeft"><input class="sudokuSpot"/></td>
-        <td class="darkRight"><input class="sudokuSpot"/></td>
+        <td class="darkLeft"><input class="sudokuCell"/></td>
+        <td><input class="sudokuCell"/></td>
+        <td class="darkLeft"><input class="sudokuCell"/></td>
+        <td class="darkRight"><input class="sudokuCell"/></td>
       </tr>
       <tr>
-        <td class="darkLeft darkTop"><input class="sudokuSpot"/></td>
-        <td class="darkTop"><input class="sudokuSpot"/></td>
-        <td class="darkLeft darkTop"><input class="sudokuSpot"/></td>
-        <td class="darkRight darkTop"><input class="sudokuSpot"/></td>
+        <td class="darkLeft darkTop"><input class="sudokuCell"/></td>
+        <td class="darkTop"><input class="sudokuCell"/></td>
+        <td class="darkLeft darkTop"><input class="sudokuCell"/></td>
+        <td class="darkRight darkTop"><input class="sudokuCell"/></td>
       </tr>
       <tr>
-        <td class="darkLeft darkBottom"><input class="sudokuSpot"/></td>
-        <td class="darkBottom"><input class="sudokuSpot"/></td>
-        <td class="darkLeft darkBottom"><input class="sudokuSpot"/></td>
-        <td class="darkRight darkBottom"><input class="sudokuSpot"/></td>
+        <td class="darkLeft darkBottom"><input class="sudokuCell"/></td>
+        <td class="darkBottom"><input class="sudokuCell"/></td>
+        <td class="darkLeft darkBottom"><input class="sudokuCell"/></td>
+        <td class="darkRight darkBottom"><input class="sudokuCell"/></td>
       </tr>
     </table>
     
+    <input id="howamidoing" type="button" value="How am I doing?"/>
+    
     <script>
-      
+    window.onload = function() {
+      var rows = document.getElementsByTagName("tr");
+      for (var i=0; i<rows.length;i++) {
+        rows[i].setAttribute("id", "row_" + i);
+        cells = rows[i].getElementsByTagName("td");
+        for (var j=0; j<cells.length; j++) {
+          cells[j].setAttribute("id", "cell_"+i+"_"+j);
+        }
+      }
+    };
     </script>
   </body>
 </html>
