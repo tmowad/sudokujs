@@ -34,18 +34,7 @@
     
     <input id="howamidoing" type="button" value="How am I doing?"/>
     
-    <script>
-    window.onload = function() {
-      var rows = document.getElementsByTagName("tr");
-      for (var i=0; i<rows.length;i++) {
-        rows[i].setAttribute("id", "row_" + i);
-        cells = rows[i].getElementsByTagName("td");
-        for (var j=0; j<cells.length; j++) {
-          cells[j].setAttribute("id", "cell_"+i+"_"+j);
-        }
-      }
-    };
-    </script>
+    <script src="sudoku.js"></script>
   </body>
 </html>
 
