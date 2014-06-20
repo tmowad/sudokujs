@@ -8,6 +8,7 @@
 //       as well as .verticalEnumerators and .subsquareEnumerators -- hmm...
 
 window.onload = function() {
+  // Set the names of each Sudoku square
   var rows = document.getElementsByTagName("tr");
   for (var i=0; i<rows.length;i++) {
     rows[i].setAttribute("id", "row_" + i);
@@ -15,6 +16,11 @@ window.onload = function() {
     for (var j=0; j<cells.length; j++) {
       cells[j].setAttribute("id", "cell_"+i+"_"+j);
     }
+  }
+  
+  var allCellInputs = document.getElementById("sudokuBoard").getElementsByTagName("input");
+  for (var i=0; i<allCellInputs.length; i++) {
+    allCellInputs[i].setAttribute("maxlength", "1");
   }
   
   function getValueAt(i, j) {
