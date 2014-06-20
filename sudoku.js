@@ -3,6 +3,10 @@
 // TODO: Make rows, cols actually changeable to a 6x6 board or a 9x9 board
 //       --> right now its just hard-coded.
 
+// TODO: Ahh...so I guess we may need to have SudokuBoard objects that implement something like
+//       a list of enumerators, e.g. board.horizontalEnumerators.length == 4 (for 4x4 board), 
+//       as well as .verticalEnumerators and .subsquareEnumerators -- hmm...
+
 window.onload = function() {
   var rows = document.getElementsByTagName("tr");
   for (var i=0; i<rows.length;i++) {
@@ -53,6 +57,28 @@ window.onload = function() {
             alert("Found '" + val + "' twice, col " + j + " (zero-indexed)!");
           }
           this_col_hash[val] = (this_col_hash[val] == undefined) ? 1 : this_col_hash[val]+1;
+        }
+      }
+    }
+    
+    // TODO: This may have to drastically change for the 3x2 subsquares (for 6x6 board) 
+    //       and 3x3 subsquares (for 9x9 board) 
+    // Each iteraction of this outer loop represents one subsquare
+    for (var sq = 0; sq < 4; sq++) {
+      var base_i = Math.floor(sq/2) * 2;
+      var base_j = (sq % 2) * 2;
+      console.log("i,j="+base_i+","+base_j);
+      
+      var this_subsquare_hash = {};
+      for (var i=0; i<2; i++) {
+        for (var j=0; j<2; j++) {
+          var val = getValueAt(base_i+i,base_j+j);
+          if (val != undefined && val.length > 0) {
+            if (this_subsquare_hash[val] != undefined) {
+              alert("Found '" + val + "' twice in subsquare " + sq + "!");
+            }
+            this_subsquare_hash[val] = (this_col_hash[val] == undefined) ? 1 : this_col_hash[val]+1;
+          }
         }
       }
     }
